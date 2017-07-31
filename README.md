@@ -13,6 +13,15 @@ A driver is considered on-shift starting after their first pick-up and until the
 last drop-off). How would you predict, at a given point in time, how many drivers would cross a
 10-hour on-shift threshold in the next 30 minutes?
 ### Solution
+We predict the number of drivers who cross a 10-hour threshold by computing the following conditional
+probability. At a point of time we say that condition $A$ holds for a driver if he crossed a 9.5-hour 
+threshold (30 minutes less than in the problem itself) less than 30 minutes ago. Similarly, condition $B$
+holds for a driver if he/she crosses a 10-hour threshold in next 30-minutes. Our goal is to compute $P(B|A)$.
+At a given point of time we can compute the number $n$ of drivers satisfying condition $A$ (only such drivers
+can possibly cross 10-hour threshold in next 30 minutes). Then we predict the number $N$ of drivers who will
+cross a 10-hour threshold as $N=P(B|A)n$.
+We assume that P(B|A) depends only on day of the week and time, so we can compute it from the data. We split
+all the week into minutes and for 
 ## Question 2
 Create a “live” (streaming) indicator warning of drivers with high probability of crossing that
 threshold. Use this indicator to create a list of drivers expected to cross this threshold within the
