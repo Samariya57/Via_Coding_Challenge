@@ -29,10 +29,10 @@ _P(B|A)_ is their ratio.
 As result of the approach we have conditional probabilities for each minute at a day for every week day.
 So, at the particulat moment to predict the number of drivers who cross a 10-hour threshold in 30 minutes we have 
 to count how many drivers already crossed 9.5-hour threshold in last 30 minutes and multiply this number by 
-conditional  probability for this week day and this minute.
-**Example**
-Input: 2013-04-09 15:00:00 , 1000
-Output: 
+conditional  probability for this week day and this minute.  
+**Example**  
+*Input:* 2013-04-09 15:00:00 , 1000  
+*Output:*   
 ## Question 2
 Create a “live” (streaming) indicator warning of drivers with high probability of crossing that
 threshold. Use this indicator to create a list of drivers expected to cross this threshold within the
