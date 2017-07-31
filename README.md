@@ -1,7 +1,7 @@
 # Via Coding Challenge
-## Initial Data
-Link - http://www.andresmh.com/nyctaxitrips/
-Trip Data Example:
+## Initial Data  
+Link - http://www.andresmh.com/nyctaxitrips/  
+Trip Data Example:  
 ['FA7C898E583A26D4DE294604DC8AA42B', '2B32A3B1F439C621150208BF31D21C7B', 'VTS', '1','2013-01-01 00:52:00', '2013-01-01 00:59:00', '1', '420', '1.08', '-73.982445', '40.742771000000005', '-73.996574', '40.744583']
 
 ## Question 1
