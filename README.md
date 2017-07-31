@@ -43,8 +43,11 @@ next 30 minutes of 2013-04-09 15:00:00.
 The taxicab dispatcher also wants to identify drivers who are on a roll – these are drivers
 who have 5 rides in a row, with less than 10 minutes of empty time between each of the rides
 (less than 10 minutes between the drop-off of one ride and the pick-up of the next). Which
-drivers were on a roll the most during the entire timespan?
+drivers were on a roll the most during the entire timespan?  
 ### Solution
+We used metric where we count +1 to particular driver each time, when he reachs 5 rides on a roll.  
+Details: we don't count extra +1 when he reaches 10,15 etc. rides on a roll.  
+As output of the approach we have a table with all drivers ranked by number of times when they reached 5 rides on a roll for the whole year.
 ## Question 4
 Around New York City, there are a few taxi stands where drivers have to wait in a line before
 picking up passengers and where passengers wait in a line for taxis. How would you identify
