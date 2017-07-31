@@ -12,7 +12,7 @@ A driver is considered on-shift starting after their first pick-up and until the
 1-hour period without a rider in their car, at which point their current shift ends (ending with their
 last drop-off). How would you predict, at a given point in time, how many drivers would cross a
 10-hour on-shift threshold in the next 30 minutes?
-### Solution
+### Current solution
 We predict the number of drivers who cross a 10-hour threshold by computing the following conditional
 probability. At a point of time we say that condition _A_ holds for a driver if he crossed a 9.5-hour 
 threshold (30 minutes less than in the problem itself) less than 30 minutes ago. Similarly, condition _B_
@@ -37,22 +37,27 @@ conditional probability for this week day and this minute.
 Create a “live” (streaming) indicator warning of drivers with high probability of crossing that
 threshold. Use this indicator to create a list of drivers expected to cross this threshold within the
 next 30 minutes of 2013-04-09 15:00:00.
-### Solution
+### Current solution
 
 ## Question 3
 The taxicab dispatcher also wants to identify drivers who are on a roll – these are drivers
 who have 5 rides in a row, with less than 10 minutes of empty time between each of the rides
 (less than 10 minutes between the drop-off of one ride and the pick-up of the next). Which
 drivers were on a roll the most during the entire timespan?  
-### Solution
+### Current solution
 We used metric where we count +1 to particular driver each time, when he reachs 5 rides on a roll.  
 Details: we don't count extra +1 when he reaches 10,15 etc. rides on a roll.  
 As output of the approach we have a table with all drivers ranked by number of times when they reached 5 rides on a roll for the whole year.
+### Alternative solution
+* We may allow user to specify time range for the count.  
+* Also we can use different metrics if they match better business purposes of this ranking.
+I.e. instead of +1 add the number of hours on a roll to measure how much time in total
+a driver was on a roll. Or count +2 if a driver has 10 hours on shift, +3 for 15 hours and so on.
 ## Question 4
 Around New York City, there are a few taxi stands where drivers have to wait in a line before
 picking up passengers and where passengers wait in a line for taxis. How would you identify
 these taxi stands? Can you find examples in this data?
-### Solution
+### Current solution
 ## Question 5
 What additional data might be useful in predicting whether a driver will cross the 10-hour on-
 shift threshold?
