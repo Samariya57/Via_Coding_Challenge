@@ -39,6 +39,14 @@ threshold. Use this indicator to create a list of drivers expected to cross this
 next 30 minutes of 2013-04-09 15:00:00.
 ### Current solution
 
+### Ways to modify
+Much more personalized approach is to send notifications to drivers based on historical behavior of
+a particular driver. For example if a driver always stops after 9h40m on-shift then the
+probability that he/she crosses 10-hours threshold is negligibly small and we don't send him/her
+a notification. However to use this method we must have big historical data for each driver
+which is not always possible, i.e. at the beginning of the year or his/her career. There's also
+a side effect that a driver may not understand who doesn't know the method may think that it's a bug
+that the system works diffrently for him/her and his/her colleague.
 ## Question 3
 The taxicab dispatcher also wants to identify drivers who are on a roll – these are drivers
 who have 5 rides in a row, with less than 10 minutes of empty time between each of the rides
@@ -48,7 +56,7 @@ drivers were on a roll the most during the entire timespan?
 We used metric where we count +1 to particular driver each time, when he reachs 5 rides on a roll.  
 Details: we don't count extra +1 when he reaches 10,15 etc. rides on a roll.  
 As output of the approach we have a table with all drivers ranked by number of times when they reached 5 rides on a roll for the whole year.
-### Alternative solution
+### Ways to modify
 * We may allow user to specify time range for the count.  
 * Also we can use different metrics if they match better business purposes of this ranking.
 I.e. instead of +1 add the number of hours on a roll to measure how much time in total
