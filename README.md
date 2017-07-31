@@ -19,8 +19,20 @@ threshold (30 minutes less than in the problem itself) less than 30 minutes ago.
 holds for a driver if he/she crosses a 10-hour threshold in next 30-minutes. Our goal is to compute _P(B|A)_.
 At a given point of time we can compute the number _n_ of drivers satisfying condition _A_ (only such drivers
 can possibly cross 10-hour threshold in next 30 minutes). Then we predict the number _N_ of drivers who will
-cross a 10-hour threshold as _N=P(B|A)*n_.
-We assume that _P(B|A)_ depends only on day of the week and time (particular minute), so we can compute it from the data. We split all the week into days and days into minutes. For each minute we count how many drivers crossed 9.5-hour and 10-hour threhold in that minute.  
+cross a 10-hour threshold as _N=P(B|A)*n_.    
+We assume that _P(B|A)_ depends only on day of the week and time (particular minute), so we can compute it
+from the data. We split all the week into days and days into minutes. For each minute we count how many
+drivers crossed 9.5-hour and 10-hour threhold in that minute. Then for each minute we find the number of drivers
+who passed 9.5-hour threshold at most 30 minutes earlier (satisfy condition _A_ at this moment) and similar
+number for those who crosses 10-hour theshold in next 30-minutes (satisfy condition _B_). The desired probability
+_P(B|A)_ is their ratio.  
+As result of the approach we have conditional probabilities for each minute at a day for every week day.
+So, at the particulat moment to predict the number of drivers who cross a 10-hour threshold in 30 minutes we have 
+to count how many drivers already crossed 9.5-hour threshold in last 30 minutes and multiply this number by 
+conditional  probability for this week day and this minute.
+**Example**
+Input: 2013-04-09 15:00:00 , 1000
+Output: 
 ## Question 2
 Create a “live” (streaming) indicator warning of drivers with high probability of crossing that
 threshold. Use this indicator to create a list of drivers expected to cross this threshold within the
