@@ -38,6 +38,7 @@ Create a “live” (streaming) indicator warning of drivers with high probabili
 threshold. Use this indicator to create a list of drivers expected to cross this threshold within the
 next 30 minutes of 2013-04-09 15:00:00.
 ### Solution
+
 ## Question 3
 The taxicab dispatcher also wants to identify drivers who are on a roll – these are drivers
 who have 5 rides in a row, with less than 10 minutes of empty time between each of the rides
