@@ -82,9 +82,11 @@ an average gap between rides is 9 minutes and a mean length of a ride is 12 minu
 no client at the moment and 20 minutes are left before the 10-hours threshold, a driver has a high probability
 to cross this threshold if he/she tries to take one more passenger.
 ### Ways to modify
-To make current solution more flexible we can give alarms depending on if a driver has a passanger
+To make the current solution more flexible we can give alarms depending on if a driver has a passenger
 when he/she is 9h30m on-shift. If at this moment there is a passenger, we send an alarm immediately,
-because there is enough time to pick only one more customer after this is droped-off. If there is noone, we wait until the driver crosses 9h40m-threshold or a new passanger is picked up, whenever is sooner, and then send a warning.
+because there is enough time to pick only one more customer after this is dropped-off. If there is no one,
+we wait until the driver crosses 9h40m-threshold or a new passenger is picked up, whenever is sooner, and
+then send a warning.
 
 A much more personalized approach is to send notifications to drivers based on historical behavior of
 a particular driver. For example, if a driver always stops after 9h40m on-shift then the
@@ -139,7 +141,9 @@ For example, if the driver accidentally started the meter without a rider actual
 rides could be rescinded after the fact? (While all taxi rides in this data set were completed,
 would you have to change anything if a ride were started but never completed?)  
 ### Answer
-
+This affects only the first approach described in "Ways to modify" for Question 2. If a driver
+who has got an alarm cancels a ride and we are sure that it's canceled, not finished, we need
+to recheck if he still needs to be alarmed based on our criterions.
 ## Question 7
 How would you identify anomalous rides (e.g., rides that shouldn’t be possible, pickups that
 shouldn’t be possible)?  
