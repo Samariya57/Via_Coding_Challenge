@@ -27,10 +27,10 @@ who passed 9.5-hour threshold at most 30 minutes earlier (satisfy condition _A_ 
 number for those who cross 10-hour threshold in next 30-minutes (satisfy condition _B_). The desired probability
 _P(B|A)_ is their ratio.    
 
-**Friday 9.5 threshold distribution**
+**Friday 9.5 threshold distribution**  
 ![alt text][fd]  
 
-**Sunday 10 threshold distribution**
+**Sunday 10 threshold distribution**  
 ![alt text][sd]
 
 [sd]: https://github.com/Samariya57/Via_Coding_Challenge/blob/master/Images/Sunday_10.jpg "Sunday distribution"
@@ -41,7 +41,7 @@ So to predict the number of drivers who cross a 10-hour threshold in 30 minutes 
 have to count how many drivers crossed 9.5-hour threshold in last 30 minutes and multiply this number by the
 conditional probability for this week day and this minute.
 **Example**  
-*Input:* 2013-04-09 15:00:00 , 2340 // Tuesday, minute 900 
+*Input:* 2013-04-09 15:00:00 , 2340 // Tuesday, minute 900    
 *Output:* 2340*0.8031 = 1879  
 ## Question 2
 Create a “live” (streaming) indicator warning of drivers with high probability of crossing that
