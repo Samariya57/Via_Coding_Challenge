@@ -102,4 +102,11 @@ would you have to change anything if a ride were started but never completed?)
 How would you identify anomalous rides (e.g., rides that shouldn’t be possible, pickups that
 shouldn’t be possible)?  
 ### Answer
-
+There are several types of anomalies in rides and unfortunatelly different mathods should be
+used to identify them. We have the following types:
+* A driver makes next pickup before a drop-off of previous passenger. For each driver we store last 
+drop-off time and can compare it with the pickup time of a new ride of this driver. 
+* Pick-up or drop-off location is outside NYC (use range in longitude and latitude), in the
+water (check types in result from Google Maps Reverse Geocoding) or in the middle of a park.
+* Too fast rides. We can sort obviously impossible cases such as zero/negative time.
+For other cases we compare average speed estimated from distance and time with the speed limit.
