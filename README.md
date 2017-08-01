@@ -82,13 +82,17 @@ an average gap between rides is 9 minutes and a mean length of a ride is 12 minu
 no client at the moment and 20 minutes are left before the 10-hours threshold, a driver has a high probability
 to cross this threshold if he/she tries to take one more passenger.
 ### Ways to modify
+To make current solution more flexible we can give alarms depending on if a driver has a passanger
+when he/she is 9h30m on-shift. If at this moment there is a passenger, we send an alarm immediately,
+because there is enough time to pick only one more customer after this is droped-off. If there is noone, we wait until the driver crosses 9h40m-threshold or a new passanger is picked up, whenever is sooner, and then send a warning.
+
 A much more personalized approach is to send notifications to drivers based on historical behavior of
 a particular driver. For example, if a driver always stops after 9h40m on-shift then the
 probability that he/she crosses the 10-hours threshold is negligibly small and we don't send him/her
 a notification. However to use this method we must have big historical data for each driver
 which is not always possible, i.e. at the beginning of the year or his/her career. There's also
 a side effect that a driver may not understand who don't know the method may think that it's a bug
-that the system works differently for him/her and his/her colleague.
+that the system works differently for him/her and his/her colleague.  
 ## Question 3
 The taxicab dispatcher also wants to identify drivers who are on a roll – these are drivers
 who have 5 rides in a row, with less than 10 minutes of empty time between each of the rides
