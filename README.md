@@ -85,7 +85,12 @@ After adding time to our calculations we will have to use **Getis-Ord** metric.
 What additional data might be useful in predicting whether a driver will cross the 10-hour on-
 shift threshold?
 ### Answer
-
+Intenal sourses
+* Historical data about drivers' activity for previous years (see Question 2).  
+External sources
+* Weather/forecast. For example, if it rains people take taxi more often.
+* Information about MTA breakdown and chenges in schedule.
+* Information about big events near the driver such as ends of festivals, sport games, concerts, etc.
 ## Question 6
 For question 2, how would you change your indicator if rides could be canceled mid-ride?
 For example, if the driver accidentally started the meter without a rider actually boarding? Or if
