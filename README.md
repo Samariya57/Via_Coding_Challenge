@@ -4,25 +4,25 @@
     .
     ├── Question1
     │   ├── MySQL Tables
-    │   │   ├── Sunday.txt                # How many drivers crossed 9.5-hour and 10-hour threshold on Sunday for each minute
+    │   │   ├── Sunday.txt                # How many drivers crossed 9.5-hour and 10-hour thresholds on Sunday for each minute
     │   │   ├── Sunday_Prob.txt           # Conditional probability for each minute on Sunday
-    │   │   └── ...
+    │   │   └── ...                       # Similar files for other days of week
     │   ├── clean_db.py                   # Support script to clean tables
     │   ├── cond_prob.py                  # Script to calculate conditional probabilities
-    │   └── fill_week_minutes_tables.py   # Count drivers crossed 9.5-hour and 10-hour threshold on Sunday for each minute
+    │   └── fill_week_minutes_tables.py   # Count drivers who crossed 9.5-hour and 10-hour thresholds for each minute
     ├── Question2                    
     │   ├── alarm_list.py                 # Script returns drivers who crossed 9.5 in 30 minutes before 2013-04-09 15:00:00
     │   ├── alarm_list_20.txt             # Script returns drivers who crossed 9.5 in 20 minutes before 2013-04-09 15:00:00
     │   └── ave_ride_gap_time.py          # Support script to find average gap and ride times
     ├── Question3
     │   ├── MySQL Tables
-    │   │   └── ONROLL Table.txt          # Rdivers ranked by counting on-roll times
-    │   └── count_on_roll.py              # Script to count on-roll times for each driver for whole year
+    │   │   └── ONROLL Table.txt          # Drivers ranked by counting on-roll times
+    │   └── count_on_roll.py              # Script to count on-roll times for each driver for the whole year
     ├── Question4
     │   ├── ?       
     │   ├── clusters.py                   # Script used DBSCAN method to find clusters
     │   ├── result_mean.csv               # Result with centers of clusters
-    │   └── result_qua.csv                # Result with number of member in each cluster
+    │   └── result_qua.csv                # Result with number of members in each cluster
     ├── Images
     └── README.md
 
