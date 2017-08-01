@@ -11,9 +11,9 @@ def main():
 	cursor = db.cursor()
 	for day in week:
 		cursor.execute(delete_stmt.format(week=day))
-		db.commit
+		db.commit()
 		cursor.executemany(insert_stmt.format(week=day),list)
-		db.commit
+		db.commit()
 		
 
 if __name__ == "__main__":

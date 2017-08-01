@@ -27,35 +27,11 @@ def main():
 					dif =  (datetime.strptime(row[5], format) - datetime.strptime(listik[0], format) )
 					if dif.seconds > 3600: 
 						on_shift_dif = (datetime.strptime(listik[0], format) - datetime.strptime(listik[1], format)).seconds // 60
-						#week_day = datetime.strptime(listik[0], format).strftime('%A')
-						#minutes = (datetime.strptime(listik[0].split()[1], format_time) - datetime.strptime("0:00:00", format_time)).seconds // 60
-						# here we are going to understand minutes where driver got 9.5 and 10 limits
-						if on_shift_dif > 600:
-							input_dif = (datetime.strptime(input_date,format) - datetime.strptime(listik[0], format) )
-							#db_minute_10 = minutes - on_shift_dif + 600
-							#db_minute_95 = db_minute_10 - 30
+						if on_shift_dif > 570:
+							# we accept only drivers who crossed 9:40 threshold in less then 20 minutes before input date
+							input_dif = (datetime.strptime(input_date,format) - datetime.strptime(listik[0], format) 
 							if ((input_dif.seconds // 60) - on_shift_dif + 580) < 21:
 								alarm_list.append(row[1] + " \n")
-							#if (db_minute_95<1):
-						#		week_day = week_days[week_day]
-						#		db_minute_95 += 1440
-						#	if (db_minute_10<1):
-						#		week_day = week_days[week_day]
-						#		db_minute_10 += 1440
-						#	cursor.execute(update_stmt_95.format(week_day=week_day,minute=db_minute_95))
-						#	cursor.execute(update_stmt_10.format(week_day=week_day,minute=db_minute_10))
-							
-														
-						elif on_shift_dif > 570:		
-						#	db_minute_95 = minutes - on_shift_dif + 570
-							if ((input_dif.seconds // 60) - on_shift_dif + 580) < 21:
-								alarm_list.append(row[1]+" \n")
-						#	if db_minute_95<1:
-						#		week_day = week_days[week_day]
-						#		db_minute_95 += 1440
-						#	cursor.execute(update_stmt_95.format(week_day=week_day,minute=db_minute_95))
-						# save historic drivers behavior here 
-						#db.commit()
 						listik[1] = row[5]
 						listik[0] = row[6]
 					else:

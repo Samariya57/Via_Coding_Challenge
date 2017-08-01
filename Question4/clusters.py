@@ -25,17 +25,10 @@ def haversine(lonlat1, lonlat2):
     return c * r
 
 def main():
-	#format = '%Y-%m-%d %H:%M:%S'
-	#format_time = "%H:%M:%S"
-	#drivers = {}
-	#week_days = {"Monday":"Sunday","Sunday":"Saturday","Saturday":"Friday", "Friday":"Thursday", "Thursday":"Wednesday", "Wednesday":"Tuesday", "Tuesday":"Monday"}
-	#db = MySQLdb.connect(host="localhost", user="root", passwd="password", db="Via")
-	#cursor = db.cursor()
-	#update_stmt_95 = "Update {week_day} set count_95 = count_95+1 where id={minute}"
-	#update_stmt_10 = "Update {week_day} set count_10 = count_10+1 where id={minute}"
 	columns = ['lng','lat']
 	coordinates = pd.DataFrame(columns=columns) 
 	index = 0
+	# Create DataFrame with long and lat of pickup places
 	for i in range(12):
 		file = "sorted_data_"+str(i+1).zfill(2)+".csv" 
 		with open(file, 'r') as csvfile:
@@ -46,22 +39,21 @@ def main():
 				lat = float(row[11])
 				if lng < -73  and lat > 40.5:
 					coordinates.loc[len(coordinates)]=[lng,lat]
-				if len(coordinates) > 10000:
-					break
-		print(len(coordinates))
-		distance_matrix = squareform(pdist(coordinates, (lambda u,v: haversine(u,v))))
-		db = DBSCAN(eps=0.03, min_samples=3, metric='precomputed') 
-		y_db = db.fit_predict(distance_matrix)
-		coordinates['cluster'] = y_db
-		#print(coordinates)
-		plt.scatter(coordinates['lat'], coordinates['lng'], c=coordinates['cluster'])
-		df = pd.DataFrame([coordinates["lat"], coordinates["lng"], db.labels_]).T # Add other attributes of coordinates if needed
-		df.columns = ["lat","lng","cluster"]
-		(df.groupby(["cluster"])['lat','lng'].mean()).to_csv("result_mean.csv")
-		(df.groupby(["cluster"])['lat'].count()).to_csv("result_qua.csv")
-		#plt.show()
-		plt.savefig('books_read.png')
-		plt.show()
+	# create distance_matrix for our points
+	distance_matrix = squareform(pdist(coordinates, (lambda u,v: haversine(u,v))))
+	# find clusters, need more word with parameters
+	db = DBSCAN(eps=0.03, min_samples=1000, metric='precomputed') 
+	y_db = db.fit_predict(distance_matrix)
+	coordinates['cluster'] = y_db
+	plt.scatter(coordinates['lat'], coordinates['lng'], c=coordinates['cluster'])
+	df = pd.DataFrame([coordinates["lat"], coordinates["lng"], db.labels_]).T
+	df.columns = ["lat","lng","cluster"]
+	# write info about clusters centers(mean of long and lat) and number of members (for future ranking) 
+	(df.groupby(["cluster"])['lat','lng'].mean()).to_csv("result_mean.csv")
+	(df.groupby(["cluster"])['lat'].count()).to_csv("result_qua.csv")
+`	# Save image to file
+	plt.savefig('Clusters_NY_mirror.png')
+	plt.show()
 
 
 
