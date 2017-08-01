@@ -39,31 +39,31 @@ threshold. Use this indicator to create a list of drivers expected to cross this
 next 30 minutes of 2013-04-09 15:00:00.
 ### Current solution
 We notify a driver when he/she crosses 9-hour-and-40-minutes threshold. We take 20 minutes before the 
-10-hour threshold as an estimate for "dangerous" times period based on computation that
-an avarage gap between rides is 9 minutes and a mean length of ride is 12 minutes. Thus if there's
-no client at the moment and 20 minutes are left before 10-hours theshold, a driver has high probability
-to cross this threshold if he/she tries to take one more passanger.
+10-hour threshold as an estimate for "dangerous" times period based on a computation that
+an average gap between rides is 9 minutes and a mean length of a ride is 12 minutes. Thus if there's
+no client at the moment and 20 minutes are left before the 10-hours threshold, a driver has a high probability
+to cross this threshold if he/she tries to take one more passenger.
 ### Ways to modify
-Much more personalized approach is to send notifications to drivers based on historical behavior of
-a particular driver. For example if a driver always stops after 9h40m on-shift then the
-probability that he/she crosses 10-hours threshold is negligibly small and we don't send him/her
+A much more personalized approach is to send notifications to drivers based on historical behavior of
+a particular driver. For example, if a driver always stops after 9h40m on-shift then the
+probability that he/she crosses the 10-hours threshold is negligibly small and we don't send him/her
 a notification. However to use this method we must have big historical data for each driver
 which is not always possible, i.e. at the beginning of the year or his/her career. There's also
-a side effect that a driver may not understand who doesn't know the method may think that it's a bug
-that the system works diffrently for him/her and his/her colleague.
+a side effect that a driver may not understand who don't know the method may think that it's a bug
+that the system works differently for him/her and his/her colleague.
 ## Question 3
 The taxicab dispatcher also wants to identify drivers who are on a roll – these are drivers
 who have 5 rides in a row, with less than 10 minutes of empty time between each of the rides
 (less than 10 minutes between the drop-off of one ride and the pick-up of the next). Which
 drivers were on a roll the most during the entire timespan?  
 ### Current solution
-We used metric where we count +1 to particular driver each time, when he reachs 5 rides on a roll.  
+We used metric where we count +1 to the particular driver each time when he reaches 5 rides on a roll.  
 Details: we don't count extra +1 when he reaches 10,15 etc. rides on a roll.  
 As the output of the approach, we have a table with all drivers ranked by the number of times when they reached 5 rides on a roll for the whole year.
 ### Ways to modify
 * We may allow the user to specify the time range for the count.  
 * Also we can use different metrics if they match better business purposes of this ranking.
-I.e. instead of +1 add the number of hours on a roll to measure how much time in total
+I.e. to add instead of +1 the number of hours on a roll to measure how much time in total
 a driver was on a roll. Or count +2 if a driver has 10 hours on shift, +3 for 15 hours and so on.
 ## Question 4
 Around New York City, there are a few taxi stands where drivers have to wait in a line before
@@ -71,13 +71,13 @@ picking up passengers and where passengers wait in a line for taxis. How would y
 these taxi stands? Can you find examples in this data?
 ### Current solution
 Passengers in a line take taxis in almost the same place (not exactly in the same one, but in
-a close neighbourhood) and these events happen in a sequence. Thus one can detect these places
-by analyzing density of events in space and time.  
+a close neighborhood) and these events happen in a sequence. Thus one can detect these places
+by analyzing the density of events in space and time.  
 We will use a simplified method by assuming that these lines have a high long-term impact
 and analyze only high density in space. In other words, if there is a place with a line which
 exists for a very short time and disappears soon it is ignored. We focus on stable lines which
 often appear in the same place.
-For this purpose we use **DBSCAN** method for clustering pickup places.
+For this purpose, we use **DBSCAN** method for clustering pickup places.
 As output of this approach, we have list of clusters (centers and number of pickups in cluster)  
 ### Ways to modify
 After adding time to our calculations we will have to use **Getis-Ord** metric.
@@ -102,7 +102,7 @@ would you have to change anything if a ride were started but never completed?)
 How would you identify anomalous rides (e.g., rides that shouldn’t be possible, pickups that
 shouldn’t be possible)?  
 ### Answer
-There are several types of anomalies in rides and unfortunately different methods should be
+There are several types of anomalies in rides and unfortunately, different methods should be
 used to identify them. We have the following types:
 * A driver makes next pickup before a drop-off of the previous passenger. For each driver, we store
 last drop-off time and can compare it with the pickup time of a new ride of this driver. 
