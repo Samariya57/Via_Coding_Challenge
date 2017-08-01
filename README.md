@@ -38,7 +38,11 @@ Create a “live” (streaming) indicator warning of drivers with high probabili
 threshold. Use this indicator to create a list of drivers expected to cross this threshold within the
 next 30 minutes of 2013-04-09 15:00:00.
 ### Current solution
-
+We notify a driver when he/she crosses 9-hour-and-40-minutes theshold. We take 20 minutes before the 
+10-hour threshold as an estimate for "dangerous" times period based on computation that
+an avarage gap between rides is 9 minutes and a mean length of ride is 12 minutes. Thus if there's
+no client at the moment and 20 minutes are left before 10-hours theshold, a driver has high probability
+to cross this threshold if he/she tries to take one more passanger.
 ### Ways to modify
 Much more personalized approach is to send notifications to drivers based on historical behavior of
 a particular driver. For example if a driver always stops after 9h40m on-shift then the
@@ -80,11 +84,17 @@ After adding time to our calculations we will have to use **Getis-Ord** metric.
 ## Question 5
 What additional data might be useful in predicting whether a driver will cross the 10-hour on-
 shift threshold?
+### Answer
+
 ## Question 6
 For question 2, how would you change your indicator if rides could be canceled mid-ride?
 For example, if the driver accidentally started the meter without a rider actually boarding? Or if
 rides could be rescinded after the fact? (While all taxi rides in this data set were completed,
-would you have to change anything if a ride were started but never completed?)
+would you have to change anything if a ride were started but never completed?)  
+### Answer
+
 ## Question 7
 How would you identify anomalous rides (e.g., rides that shouldn’t be possible, pickups that
-shouldn’t be possible)?
+shouldn’t be possible)?  
+### Answer
+
