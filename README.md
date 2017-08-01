@@ -14,21 +14,21 @@ last drop-off). How would you predict, at a given point in time, how many driver
 10-hour on-shift threshold in the next 30 minutes?
 ### Current solution
 We predict the number of drivers who cross a 10-hour threshold by computing the following conditional
-probability. At a point of time we say that condition _A_ holds for a driver if he crossed a 9.5-hour 
+probability. At a point of time, we say that condition _A_ holds for a driver if he crossed a 9.5-hour 
 threshold (30 minutes less than in the problem itself) less than 30 minutes ago. Similarly, condition _B_
 holds for a driver if he/she crosses a 10-hour threshold in next 30-minutes. Our goal is to compute _P(B|A)_.
-At a given point of time we can compute the number _n_ of drivers satisfying condition _A_ (only such drivers
+At a given point of time, we can compute the number _n_ of drivers satisfying condition _A_ (only such drivers
 can possibly cross 10-hour threshold in next 30 minutes). Then we predict the number _N_ of drivers who will
 cross a 10-hour threshold as _N=P(B|A)*n_.    
-We assume that _P(B|A)_ depends only on day of the week and time (particular minute), so we can compute it
+We assume that _P(B|A)_ depends only on the day of the week and time (particular minute), so we can compute it
 from the data. We split all the week into days and days into minutes. For each minute we count how many
-drivers crossed 9.5-hour and 10-hour threhold in that minute. Then for each minute we find the number of drivers
-who passed 9.5-hour threshold at most 30 minutes earlier (satisfy condition _A_ at this moment) and similar
-number for those who crosses 10-hour theshold in next 30-minutes (satisfy condition _B_). The desired probability
+drivers crossed 9.5-hour and 10-hour threshold in that minute. Then for each minute, we find the number of drivers
+who passed 9.5-hour threshold at most 30 minutes earlier (satisfy condition _A_ at this moment) and a similar
+number for those who cross 10-hour threshold in next 30-minutes (satisfy condition _B_). The desired probability
 _P(B|A)_ is their ratio.  
-As result of the approach we have conditional probabilities for each minute for every week day.
-So to predict the number of drivers who cross a 10-hour threshold in 30 minutes after a particular moment we have 
-to count how many drivers crossed 9.5-hour threshold in last 30 minutes and multiply this number by the
+As result of the approach, we have conditional probabilities for each minute for every week day.
+So to predict the number of drivers who cross a 10-hour threshold in 30 minutes after a particular moment we
+have to count how many drivers crossed 9.5-hour threshold in last 30 minutes and multiply this number by the
 conditional probability for this week day and this minute.
 **Example**  
 *Input:* 2013-04-09 15:00:00 , 1000  
@@ -38,7 +38,7 @@ Create a “live” (streaming) indicator warning of drivers with high probabili
 threshold. Use this indicator to create a list of drivers expected to cross this threshold within the
 next 30 minutes of 2013-04-09 15:00:00.
 ### Current solution
-We notify a driver when he/she crosses 9-hour-and-40-minutes theshold. We take 20 minutes before the 
+We notify a driver when he/she crosses 9-hour-and-40-minutes threshold. We take 20 minutes before the 
 10-hour threshold as an estimate for "dangerous" times period based on computation that
 an avarage gap between rides is 9 minutes and a mean length of ride is 12 minutes. Thus if there's
 no client at the moment and 20 minutes are left before 10-hours theshold, a driver has high probability
@@ -59,7 +59,7 @@ drivers were on a roll the most during the entire timespan?
 ### Current solution
 We used metric where we count +1 to particular driver each time, when he reachs 5 rides on a roll.  
 Details: we don't count extra +1 when he reaches 10,15 etc. rides on a roll.  
-As output of the approach we have a table with all drivers ranked by number of times when they reached 5 rides on a roll for the whole year.
+As the output of the approach, we have a table with all drivers ranked by number of times when they reached 5 rides on a roll for the whole year.
 ### Ways to modify
 * We may allow user to specify time range for the count.  
 * Also we can use different metrics if they match better business purposes of this ranking.
