@@ -27,7 +27,9 @@ who passed 9.5-hour threshold at most 30 minutes earlier (satisfy condition _A_ 
 number for those who cross 10-hour threshold in next 30-minutes (satisfy condition _B_). The desired probability
 _P(B|A)_ is their ratio.    
 
-![alt text][fd] ![alt text] [sd]
+![alt text][fd] 
+
+![alt text][sd]
 
 [sd]: https://github.com/Samariya57/Via_Coding_Challenge/blob/master/Images/Sunday_10.jpg "Sunday distribution"
 [fd]: https://github.com/Samariya57/Via_Coding_Challenge/blob/master/Images/Friday_95.jpg "Friday distribution"  
