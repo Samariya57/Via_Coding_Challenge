@@ -16,13 +16,13 @@
     │   └── ave_ride_gap_time.py          # Support script to find average gap and ride times
     ├── Question3
     │   ├── MySQL Tables
-    │   │   └── ONROLL Table.txt
-    │   └── count_on_roll.py
+    │   │   └── ONROLL Table.txt          # Rdivers ranked by counting on-roll times
+    │   └── count_on_roll.py              # Script to count on-roll times for each driver for whole year
     ├── Question4
-    │   ├── ?
-    │   ├── clusters.py
-    │   ├── result_mean.csv
-    │   └── result_qua.csv   
+    │   ├── ?       
+    │   ├── clusters.py                   # Script used DBSCAN method to find clusters
+    │   ├── result_mean.csv               # Result with centers of clusters
+    │   └── result_qua.csv                # Result with number of member in each cluster
     ├── Images
     └── README.md
 
