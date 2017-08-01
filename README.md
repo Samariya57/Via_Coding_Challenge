@@ -122,7 +122,7 @@ and analyze only high density in space. In other words, if there is a place with
 exists for a very short time and disappears soon it is ignored. We focus on stable lines which
 often appear in the same place.
 For this purpose, we use **DBSCAN** method for clustering pickup places.
-As output of this approach, we have list of clusters (centers and number of pickups in cluster) 
+As output of this approach, we have list of clusters (centers and number of pickups in cluster).   
 At this moment I precessed only sample of data, however, we already can recognise JFK and LaGuardia airports, for example.
 ![alt text][clusters]
 
