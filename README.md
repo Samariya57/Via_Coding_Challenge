@@ -66,6 +66,15 @@ Around New York City, there are a few taxi stands where drivers have to wait in 
 picking up passengers and where passengers wait in a line for taxis. How would you identify
 these taxi stands? Can you find examples in this data?
 ### Current solution
+Passengers in a line take taxis in almost the same place (not exactly in the same one, but in
+a close neighbourhood) and these events happen in a sequence. Thus one can detect these places
+by analyzing density of events in space and time.  
+We will use simplified method by assuming that these lines have high long-term impact
+and analyse only high density in space. In other words, if there is a place with a line which
+exists for a very short time and dissapears soon it is ignored. We focus on stable lines which
+often appear in the same place.
+Fot this purpose we use **DBSCAN** method for clusterising pickup places.
+As output of this approach we have list of clusters (centers and number of pickups in cluster)
 ## Question 5
 What additional data might be useful in predicting whether a driver will cross the 10-hour on-
 shift threshold?
