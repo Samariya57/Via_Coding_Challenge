@@ -26,7 +26,8 @@ drivers crossed 9.5-hour and 10-hour threshold in that minute. Then for each min
 who passed 9.5-hour threshold at most 30 minutes earlier (satisfy condition _A_ at this moment) and a similar
 number for those who cross 10-hour threshold in next 30-minutes (satisfy condition _B_). The desired probability
 _P(B|A)_ is their ratio.  
-[fd]: https://github.com/Samariya57/Via_Coding_Challenge/blob/master/Images/Friday_95.jpg "Friday distribution"
+![alt text][fd]  
+[fd]: https://github.com/Samariya57/Via_Coding_Challenge/blob/master/Images/Friday_95.jpg "Friday distribution"  
 As result of the approach, we have conditional probabilities for each minute for every week day.
 So to predict the number of drivers who cross a 10-hour threshold in 30 minutes after a particular moment we
 have to count how many drivers crossed 9.5-hour threshold in last 30 minutes and multiply this number by the
