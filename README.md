@@ -74,7 +74,9 @@ and analyse only high density in space. In other words, if there is a place with
 exists for a very short time and dissapears soon it is ignored. We focus on stable lines which
 often appear in the same place.
 Fot this purpose we use **DBSCAN** method for clusterising pickup places.
-As output of this approach we have list of clusters (centers and number of pickups in cluster)
+As output of this approach we have list of clusters (centers and number of pickups in cluster)  
+### Ways to modify
+After adding time to our calculations we will have to use **Getis-Ord** metric.
 ## Question 5
 What additional data might be useful in predicting whether a driver will cross the 10-hour on-
 shift threshold?
