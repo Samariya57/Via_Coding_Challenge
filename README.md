@@ -3,30 +3,26 @@
 
     .
     ├── Question1
-    │   ├── MySQLTables
+    │   ├── MySQL Tables
     │   │   ├── Sunday.txt
     │   │   ├── Sunday_Prob.txt
-    │   │   ├── Monday.txt
-    │   │   ├── Monday_Prob.txt
-    │   │   ├── Tuesday.txt
-    │   │   ├── Tuesday_Prob.txt
-    │   │   ├── Wednesday.txt
-    │   │   ├── Wednesday_Prob.txt
-    │   │   ├── Thursday.txt
-    │   │   ├── Thursday_Prob.txt
-    │   │   ├── Friday.txt
-    │   │   ├── Friday_Prob.txt
-    │   │   ├── Saturday.txt
-    │   │   └── Saturday_Prob.txt
-    │   ├── 
-    │   └── unit                
+    │   │   └── ...
+    │   ├── clean_db.py
+    │   ├── cond_prob.py         
+    │   └── fill_week_minutes_tables.py
     ├── Question2                    
-   
-    │   │ 
-    │   ├── 
-    │   └── unit                
+    │   ├── alarm_list.py
+    │   ├── alarm_list_20.txt
+    │   └── ave_ride_gap_time.py   
     ├── Question3
+    │   ├── MySQL Tables
+    │   │   └── ONROLL Table.txt
+    │   └── count_on_roll.py
     ├── Question4
+    │   ├── ?
+    │   ├── clusters.py
+    │   ├── result_mean.csv
+    │   └── result_qua.csv   
     ├── Images
     └── README.md
 
