@@ -59,9 +59,9 @@ drivers were on a roll the most during the entire timespan?
 ### Current solution
 We used metric where we count +1 to particular driver each time, when he reachs 5 rides on a roll.  
 Details: we don't count extra +1 when he reaches 10,15 etc. rides on a roll.  
-As the output of the approach, we have a table with all drivers ranked by number of times when they reached 5 rides on a roll for the whole year.
+As the output of the approach, we have a table with all drivers ranked by the number of times when they reached 5 rides on a roll for the whole year.
 ### Ways to modify
-* We may allow user to specify time range for the count.  
+* We may allow the user to specify the time range for the count.  
 * Also we can use different metrics if they match better business purposes of this ranking.
 I.e. instead of +1 add the number of hours on a roll to measure how much time in total
 a driver was on a roll. Or count +2 if a driver has 10 hours on shift, +3 for 15 hours and so on.
@@ -73,24 +73,24 @@ these taxi stands? Can you find examples in this data?
 Passengers in a line take taxis in almost the same place (not exactly in the same one, but in
 a close neighbourhood) and these events happen in a sequence. Thus one can detect these places
 by analyzing density of events in space and time.  
-We will use simplified method by assuming that these lines have high long-term impact
-and analyse only high density in space. In other words, if there is a place with a line which
-exists for a very short time and dissapears soon it is ignored. We focus on stable lines which
+We will use a simplified method by assuming that these lines have a high long-term impact
+and analyze only high density in space. In other words, if there is a place with a line which
+exists for a very short time and disappears soon it is ignored. We focus on stable lines which
 often appear in the same place.
-Fot this purpose we use **DBSCAN** method for clusterising pickup places.
-As output of this approach we have list of clusters (centers and number of pickups in cluster)  
+For this purpose we use **DBSCAN** method for clustering pickup places.
+As output of this approach, we have list of clusters (centers and number of pickups in cluster)  
 ### Ways to modify
 After adding time to our calculations we will have to use **Getis-Ord** metric.
 ## Question 5
 What additional data might be useful in predicting whether a driver will cross the 10-hour on-
 shift threshold?
 ### Answer
-Intenal sourses
+Internal sources
 * Historical data about drivers' activity for previous years (see Question 2).  
 External sources
 * Weather/forecast. For example, if it rains people take taxi more often.
-* Information about MTA breakdown and chenges in schedule.
-* Information about big events near the driver such as ends of festivals, sport games, concerts, etc.
+* Information about MTA breakdown and changes in the schedule.
+* Information about big events near the driver such as ends of festivals, sports games, concerts, etc.
 ## Question 6
 For question 2, how would you change your indicator if rides could be canceled mid-ride?
 For example, if the driver accidentally started the meter without a rider actually boarding? Or if
@@ -102,11 +102,11 @@ would you have to change anything if a ride were started but never completed?)
 How would you identify anomalous rides (e.g., rides that shouldn’t be possible, pickups that
 shouldn’t be possible)?  
 ### Answer
-There are several types of anomalies in rides and unfortunatelly different mathods should be
+There are several types of anomalies in rides and unfortunately different methods should be
 used to identify them. We have the following types:
-* A driver makes next pickup before a drop-off of previous passenger. For each driver we store last 
-drop-off time and can compare it with the pickup time of a new ride of this driver. 
+* A driver makes next pickup before a drop-off of the previous passenger. For each driver, we store
+last drop-off time and can compare it with the pickup time of a new ride of this driver. 
 * Pick-up or drop-off location is outside NYC (use range in longitude and latitude), in the
 water (check types in result from Google Maps Reverse Geocoding) or in the middle of a park.
 * Too fast rides. We can sort obviously impossible cases such as zero/negative time.
-For other cases we compare average speed estimated from distance and time with the speed limit.
+For other cases, we compare average speed estimated from distance and time with the speed limit.
