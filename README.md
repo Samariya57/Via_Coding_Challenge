@@ -19,7 +19,7 @@
     │   │   └── ONROLL Table.txt          # Drivers ranked by counting on-roll times
     │   └── count_on_roll.py              # Script to count on-roll times for each driver for the whole year
     ├── Question4
-    │   ├── Clusters_NY_Mirror.png        # Visualization of an clusterization example, reflected by the diagonal
+    │   ├── Clusters_NY.png               # Visualization of an clusterization example
     │   ├── clusters.py                   # Script used DBSCAN method to find clusters
     │   ├── result_mean.csv               # Result with centers of clusters
     │   └── result_qua.csv                # Result with number of members in each cluster
