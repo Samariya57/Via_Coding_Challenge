@@ -128,7 +128,7 @@ in JFK and LaGuardia airports, for example.
 
 ![alt text][clusters]
 
-[clusters]: https://github.com/Samariya57/Via_Coding_Challenge/blob/master/Question4/Clusters_NY_Mirror.png "Mirrored clusters"  
+[clusters]: https://github.com/Samariya57/Via_Coding_Challenge/blob/master/Question4/Clusters_NY.png "Clusters"  
 
 ### Ways to modify
 After adding time to our calculations we will have to use **Getis-Ord** metric.
